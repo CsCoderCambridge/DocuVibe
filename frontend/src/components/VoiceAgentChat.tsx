@@ -25,7 +25,7 @@ interface Props {
     isSupported: boolean;
     muted: boolean;
     speaking: boolean;
-    hasUrduVoice: boolean;
+    canSpeak: (lang: Language) => boolean;
     toggleMute: () => void;
     replay: (text: string, lang: Language) => void;
   };
@@ -113,7 +113,7 @@ export default function VoiceAgentChat({ hasDocument, messages, logs, language, 
                       <Mic className="h-3 w-3" /> voice
                     </span>
                   )}
-                  {!isUser && speech.isSupported && (
+                  {!isUser && speech.canSpeak(m.language) && (
                     <button
                       type="button"
                       onClick={() => speech.replay(m.content, m.language)}
@@ -141,10 +141,8 @@ export default function VoiceAgentChat({ hasDocument, messages, logs, language, 
           <AlertCircle className="mt-0.5 h-3.5 w-3.5 shrink-0" /> {error || recorder.error}
         </div>
       )}
-      {language === "ur" && speech.isSupported && !speech.hasUrduVoice && (
-        <p className="mx-4 mb-2 text-[11px] text-slate-500">
-          No Urdu voice is installed in this browser, so spoken Urdu may be unavailable. Text replies still work.
-        </p>
+      {language === "ur" && speech.isSupported && (
+        <p className="mx-4 mb-2 text-[11px] text-slate-500">Voice replies are English-only for now. Urdu replies are shown as text.</p>
       )}
 
       <div className="border-t border-slate-200 p-3">

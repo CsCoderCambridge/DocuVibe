@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent
 load_dotenv(BASE_DIR / ".env")
+load_dotenv(BASE_DIR.parent / ".env")
 
 
 def _env(name: str, default: str) -> str:
@@ -38,6 +39,6 @@ MAX_AGENT_ROUNDS = 6
 def validate_config() -> None:
     if not GROQ_API_KEY:
         raise RuntimeError(
-            "GROQ_API_KEY is not set. Copy backend/.env.example to backend/.env and add your Groq API key."
+            "GROQ_API_KEY is not set. Add it to .env in the repo root or in backend/.env (see backend/.env.example)."
         )
     UPLOAD_DIR.mkdir(parents=True, exist_ok=True)

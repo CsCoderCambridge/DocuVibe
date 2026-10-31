@@ -43,7 +43,7 @@ export default function HomePage() {
   const [recentlyUpdated, setRecentlyUpdated] = useState<Set<number>>(new Set());
 
   const [messages, setMessages] = useState<ChatMessage[]>([]);
-  const [language, setLanguage] = useState<Language>("ur");
+  const [language, setLanguage] = useState<Language>("en");
   const [uploading, setUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [chatBusy, setChatBusy] = useState(false);
@@ -308,7 +308,7 @@ export default function HomePage() {
               isSupported: speech.isSupported,
               muted: speech.muted,
               speaking: speech.speaking,
-              hasUrduVoice: speech.hasUrduVoice,
+              canSpeak: speech.canSpeak,
               toggleMute: () => {
                 if (!speech.muted) speech.stop();
                 speech.setMuted(!speech.muted);
