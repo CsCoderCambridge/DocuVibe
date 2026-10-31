@@ -101,7 +101,7 @@ export default function VoiceAgentChat({ hasDocument, messages, logs, language, 
                 role="radio"
                 aria-checked={language === l}
                 onClick={() => onLanguageChange(l)}
-                className={`rounded px-2 py-1 font-medium ${language === l ? "bg-emerald-600 text-white" : "text-slate-600 hover:bg-slate-100"}`}
+                className={`rounded px-2 py-1 font-medium ${language === l ? "bg-primary text-white" : "text-slate-600 hover:bg-slate-100"}`}
               >
                 {l === "ur" ? "اردو" : "English"}
               </button>
@@ -122,14 +122,14 @@ export default function VoiceAgentChat({ hasDocument, messages, logs, language, 
           const isUrdu = m.language === "ur";
           return (
             <div key={m.id} className={`flex gap-2 ${isUser ? "flex-row-reverse" : ""}`}>
-              <div className={`mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${isUser ? "bg-sky-600" : "bg-emerald-600"} text-white`}>
+              <div className={`mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${isUser ? "bg-primary" : "bg-primary"} text-white`}>
                 {isUser ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
               </div>
-              <div className={`max-w-[85%] rounded-2xl px-3 py-2 text-sm ${isUser ? "bg-sky-600 text-white" : "bg-slate-100 text-slate-900"}`}>
+              <div className={`max-w-[85%] rounded-2xl px-3 py-2 text-sm ${isUser ? "bg-primary text-white" : "bg-surface-variant text-slate-900"}`}>
                 <p dir={isUrdu ? "rtl" : "ltr"} className={`whitespace-pre-wrap break-words ${isUrdu ? "font-urdu text-base leading-[2.1]" : ""}`}>
                   {m.content}
                 </p>
-                <div className={`mt-1 flex items-center gap-2 text-[10px] ${isUser ? "text-sky-100" : "text-slate-500"}`}>
+                <div className={`mt-1 flex items-center gap-2 text-[10px] ${isUser ? "text-white/80" : "text-slate-500"}`}>
                   {m.viaVoice && (
                     <span className="inline-flex items-center gap-0.5">
                       <Mic className="h-3 w-3" /> voice
@@ -202,7 +202,7 @@ export default function VoiceAgentChat({ hasDocument, messages, logs, language, 
               if (e.key === " " || e.key === "Enter") recorder.onPressEnd();
             }}
             className={`relative flex h-14 w-14 shrink-0 select-none items-center justify-center rounded-full text-white shadow-md transition disabled:cursor-not-allowed disabled:opacity-40 ${
-              recorder.isRecording ? "scale-110 bg-red-600" : "bg-emerald-600 hover:bg-emerald-700"
+              recorder.isRecording ? "scale-110 bg-red-600" : "bg-primary hover:bg-primary-dark"
             }`}
             aria-label={recorder.isRecording ? "Recording, release to send" : "Hold to talk"}
             title={recorder.isSupported ? "Hold to talk" : "Voice input not supported in this browser"}
@@ -230,13 +230,13 @@ export default function VoiceAgentChat({ hasDocument, messages, logs, language, 
               disabled={disabled}
               dir="auto"
               placeholder={recorder.isRecording ? "Listening..." : language === "ur" ? "اپنا پیغام لکھیں..." : "Type a message or hold the mic"}
-              className={`min-w-0 flex-1 rounded-full border border-slate-300 px-4 py-2.5 text-sm focus:border-emerald-500 focus:outline-none disabled:bg-slate-50 ${language === "ur" ? "font-urdu" : ""}`}
+              className={`min-w-0 flex-1 rounded-full border border-slate-300 px-4 py-2.5 text-sm focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none disabled:bg-slate-50 ${language === "ur" ? "font-urdu" : ""}`}
               aria-label="Message"
             />
             <button
               type="submit"
               disabled={disabled || !input.trim()}
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-900 text-white hover:bg-slate-800 disabled:opacity-40"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-white hover:bg-primary-dark disabled:opacity-40"
               aria-label="Send message"
             >
               <Send className="h-4 w-4" />

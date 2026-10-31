@@ -14,10 +14,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600&family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap"
         />
       </head>
-      <body className="bg-slate-100 text-slate-900 antialiased">{children}</body>
+      <body className="bg-surface font-sans text-[#1F1F1F] antialiased">{children}</body>
     </html>
   );
 }

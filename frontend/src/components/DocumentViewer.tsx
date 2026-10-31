@@ -68,7 +68,7 @@ export default function DocumentViewer({ document, history, uploading, error, on
     <section className="panel overflow-hidden" aria-label="Document viewer">
       <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3">
         <h2 className="flex items-center gap-2 font-semibold">
-          <FileImage className="h-4 w-4 text-sky-600" aria-hidden /> Document and Vision Passes
+          <FileImage className="h-4 w-4 text-primary" aria-hidden /> Document and Vision Passes
         </h2>
         <button
           type="button"
@@ -93,7 +93,7 @@ export default function DocumentViewer({ document, history, uploading, error, on
                     setShowHistory(false);
                   }}
                   className={`flex w-full items-center justify-between px-3 py-2 text-left hover:bg-slate-50 ${
-                    document?.id === h.id ? "bg-sky-50" : ""
+                    document?.id === h.id ? "bg-primary-container/40" : ""
                   }`}
                 >
                   <span className="truncate">
@@ -117,13 +117,13 @@ export default function DocumentViewer({ document, history, uploading, error, on
             setDragOver(false);
             if (!uploading) handleFiles(e.dataTransfer.files);
           }}
-          className={`flex flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed p-4 text-center transition ${
-            dragOver ? "border-sky-500 bg-sky-50" : "border-slate-300"
+          className={`flex flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed p-6 text-center transition ${
+            dragOver ? "border-primary bg-primary-container/40" : "border-slate-300"
           }`}
         >
           {uploading ? (
             <>
-              <Loader2 className="h-6 w-6 animate-spin text-sky-600" aria-hidden />
+              <Loader2 className="h-6 w-6 animate-spin text-primary" aria-hidden />
               <p className="text-sm font-medium">Running multi-pass vision agent...</p>
               <p className="text-xs text-slate-500">Global scan, crop and re-examine, script repair, SQLite save</p>
             </>
@@ -132,7 +132,7 @@ export default function DocumentViewer({ document, history, uploading, error, on
               <Upload className="h-6 w-6 text-slate-400" aria-hidden />
               <p className="text-sm">
                 Drag an Urdu/English form, bill or notice here, or{" "}
-                <button type="button" onClick={() => inputRef.current?.click()} className="font-semibold text-sky-600 underline">
+                <button type="button" onClick={() => inputRef.current?.click()} className="font-semibold text-primary underline">
                   browse
                 </button>
               </p>
@@ -159,7 +159,7 @@ export default function DocumentViewer({ document, history, uploading, error, on
                 type="button"
                 disabled={uploading}
                 onClick={() => loadSample(s.src)}
-                className="inline-flex items-center gap-1 rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-medium text-sky-700 hover:bg-sky-100 disabled:opacity-50"
+                className="inline-flex items-center gap-1 rounded-full border border-primary-container bg-primary-container/40 px-3 py-1 text-xs font-medium text-primary hover:bg-primary-container disabled:opacity-50"
               >
                 <Sparkles className="h-3 w-3" /> {s.label}
               </button>
@@ -176,7 +176,7 @@ export default function DocumentViewer({ document, history, uploading, error, on
         {document ? (
           <>
             <div className="flex flex-wrap items-center gap-2 text-xs">
-              <span className="rounded-full bg-slate-900 px-2 py-0.5 font-medium text-white">{document.doc_type || "Document"}</span>
+              <span className="rounded-full bg-primary px-2 py-0.5 font-medium text-white">{document.doc_type || "Document"}</span>
               <span
                 className={`rounded-full px-2 py-0.5 font-medium ${
                   document.confidence_score >= 0.85
@@ -191,7 +191,7 @@ export default function DocumentViewer({ document, history, uploading, error, on
               {bbox && <span className="rounded-full bg-fuchsia-100 px-2 py-0.5 text-fuchsia-700">Pass 2 region [{bbox.join(", ")}]</span>}
             </div>
 
-            <div className="relative overflow-hidden rounded-lg border border-slate-200 bg-slate-50">
+            <div className="relative overflow-hidden rounded-2xl bg-surface-variant">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={imageUrl(document.image_path)} alt={document.filename} className="block h-auto w-full" />
               {bbox && (
@@ -230,7 +230,7 @@ export default function DocumentViewer({ document, history, uploading, error, on
             </div>
             <div
               dir="auto"
-              className={`whitespace-pre-wrap rounded-lg bg-slate-50 p-3 text-sm ${isUrduScript ? "urdu text-base" : ""}`}
+              className={`whitespace-pre-wrap rounded-2xl bg-surface p-4 text-sm ${isUrduScript ? "urdu text-base" : ""}`}
             >
               {activeText || <span className="text-slate-400">Nothing extracted for this view.</span>}
             </div>

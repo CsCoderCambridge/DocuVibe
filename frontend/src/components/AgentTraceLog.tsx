@@ -20,7 +20,7 @@ import {
 import type { AgentLog } from "@/lib/types";
 
 const TOOL_META: Record<string, { icon: LucideIcon; color: string }> = {
-  pass1_global_scan: { icon: ScanSearch, color: "text-sky-600 bg-sky-50 border-sky-200" },
+  pass1_global_scan: { icon: ScanSearch, color: "text-primary bg-primary-container/40 border-primary-container" },
   self_correction_check: { icon: ShieldCheck, color: "text-slate-600 bg-slate-50 border-slate-200" },
   crop_and_reexamine_region: { icon: Crop, color: "text-fuchsia-600 bg-fuchsia-50 border-fuchsia-200" },
   verify_and_repair_script: { icon: Wand2, color: "text-violet-600 bg-violet-50 border-violet-200" },

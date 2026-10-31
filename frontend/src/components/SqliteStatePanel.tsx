@@ -52,7 +52,7 @@ function FieldRow({ field, highlight, onSave }: { field: Field; highlight: boole
                 if (e.key === "Enter") save();
                 if (e.key === "Escape") setEditing(false);
               }}
-              className="w-full rounded border border-slate-300 px-2 py-1 text-sm focus:border-sky-500 focus:outline-none"
+              className="w-full rounded border border-slate-300 px-2 py-1 text-sm focus:border-primary focus:outline-none"
               aria-label={`Value for ${field.field_label}`}
             />
             <button type="button" onClick={save} disabled={saving} className="rounded p-1 text-emerald-600 hover:bg-emerald-50" aria-label="Save">
@@ -170,7 +170,7 @@ export default function SqliteStatePanel({ hasDocument, fields, actionItems, dra
                       type="checkbox"
                       checked={item.is_completed}
                       onChange={(e) => onToggleAction(item.id, e.target.checked)}
-                      className="mt-0.5 h-4 w-4 accent-emerald-600"
+                      className="mt-0.5 h-4 w-4 accent-[#0B57D0]"
                     />
                     <span dir="auto" className={`text-sm ${item.is_completed ? "text-slate-400 line-through" : ""}`}>
                       <span className="mr-1 font-semibold">{item.step_number}.</span>
@@ -188,7 +188,7 @@ export default function SqliteStatePanel({ hasDocument, fields, actionItems, dra
               <button
                 type="button"
                 onClick={() => window.print()}
-                className="inline-flex items-center gap-1 rounded-md bg-slate-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-slate-800"
+                className="inline-flex items-center gap-1 rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-white hover:bg-primary-dark"
               >
                 <Printer className="h-4 w-4" /> Print
               </button>
