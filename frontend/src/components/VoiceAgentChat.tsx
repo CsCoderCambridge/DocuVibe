@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { AlertCircle, Bot, Loader2, Mic, Send, User, Volume2, VolumeX } from "lucide-react";
+import { AlertCircle, Bot, Loader2, Mic, Pause, Play, Send, User } from "lucide-react";
 import AgentTraceLog from "./AgentTraceLog";
 import type { AgentLog, ChatMessage, Language } from "@/lib/types";
 
@@ -22,12 +22,12 @@ interface Props {
     onPressEnd: () => void;
   };
   speech: {
-    isSupported: boolean;
-    muted: boolean;
-    speaking: boolean;
     canSpeak: (lang: Language) => boolean;
-    toggleMute: () => void;
-    replay: (text: string, lang: Language) => void;
+    activeId: string | null;
+    paused: boolean;
+    play: (id: string, text: string, lang: Language) => void;
+    pause: () => void;
+    resume: () => void;
   };
 }
 
@@ -35,6 +35,39 @@ const QUICK_PROMPTS: Record<Language, string[]> = {
   en: ["What is this document?", "What information is missing?", "What steps do I need to take?", "Prepare my filled application"],
   ur: ["یہ دستاویز کیا ہے؟", "کون سی معلومات باقی ہیں؟", "مجھے کیا اقدامات کرنے ہیں؟", "میری درخواست تیار کریں"],
 };
+
+function SpeechControl({
+  state,
+  onPlay,
+  onPause,
+  onResume,
+}: {
+  state: "idle" | "playing" | "paused";
+  onPlay: () => void;
+  onPause: () => void;
+  onResume: () => void;
+}) {
+  const base = "inline-flex items-center gap-1 rounded-full border px-2 py-0.5 font-medium transition";
+  if (state === "playing") {
+    return (
+      <button type="button" onClick={onPause} className={`${base} border-emerald-300 bg-emerald-50 text-emerald-700 hover:bg-emerald-100`} aria-label="Pause voice">
+        <Pause className="h-3 w-3" /> Pause
+      </button>
+    );
+  }
+  if (state === "paused") {
+    return (
+      <button type="button" onClick={onResume} className={`${base} border-amber-300 bg-amber-50 text-amber-700 hover:bg-amber-100`} aria-label="Resume voice">
+        <Play className="h-3 w-3" /> Resume
+      </button>
+    );
+  }
+  return (
+    <button type="button" onClick={onPlay} className={`${base} border-slate-300 bg-white text-slate-600 hover:bg-slate-50`} aria-label="Play reply aloud">
+      <Play className="h-3 w-3" /> Play
+    </button>
+  );
+}
 
 export default function VoiceAgentChat({ hasDocument, messages, logs, language, onLanguageChange, busy, error, onSend, recorder, speech }: Props) {
   const [input, setInput] = useState("");
@@ -60,17 +93,6 @@ export default function VoiceAgentChat({ hasDocument, messages, logs, language, 
           <Bot className="h-4 w-4 text-emerald-600" aria-hidden /> Civic Agent
         </h2>
         <div className="flex items-center gap-2">
-          {speech.isSupported && (
-            <button
-              type="button"
-              onClick={speech.toggleMute}
-              className="rounded-md p-1.5 text-slate-600 hover:bg-slate-100"
-              aria-label={speech.muted ? "Unmute voice replies" : "Mute voice replies"}
-              title={speech.muted ? "Voice replies off" : "Voice replies on"}
-            >
-              {speech.muted ? <VolumeX className="h-4 w-4" /> : <Volume2 className={`h-4 w-4 ${speech.speaking ? "text-emerald-600" : ""}`} />}
-            </button>
-          )}
           <div className="flex rounded-md border border-slate-200 p-0.5 text-xs" role="radiogroup" aria-label="Language">
             {(["ur", "en"] as const).map((l) => (
               <button
@@ -114,14 +136,12 @@ export default function VoiceAgentChat({ hasDocument, messages, logs, language, 
                     </span>
                   )}
                   {!isUser && speech.canSpeak(m.language) && (
-                    <button
-                      type="button"
-                      onClick={() => speech.replay(m.content, m.language)}
-                      className="inline-flex items-center gap-0.5 hover:text-emerald-700"
-                      aria-label="Play reply aloud"
-                    >
-                      <Volume2 className="h-3 w-3" /> play
-                    </button>
+                    <SpeechControl
+                      state={speech.activeId !== m.id ? "idle" : speech.paused ? "paused" : "playing"}
+                      onPlay={() => speech.play(m.id, m.content, m.language)}
+                      onPause={speech.pause}
+                      onResume={speech.resume}
+                    />
                   )}
                 </div>
               </div>
@@ -141,7 +161,7 @@ export default function VoiceAgentChat({ hasDocument, messages, logs, language, 
           <AlertCircle className="mt-0.5 h-3.5 w-3.5 shrink-0" /> {error || recorder.error}
         </div>
       )}
-      {language === "ur" && speech.isSupported && (
+      {language === "ur" && (
         <p className="mx-4 mb-2 text-[11px] text-slate-500">Voice replies are English-only for now. Urdu replies are shown as text.</p>
       )}
 

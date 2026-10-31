@@ -52,7 +52,6 @@ export default function HomePage() {
   const recorder = useRecorder();
   const speech = useSpeech();
   const pressedRef = useRef(false);
-  const localLogId = useRef(-1);
   const fieldsRef = useRef<Field[]>([]);
   fieldsRef.current = fields;
 
@@ -141,28 +140,14 @@ export default function HomePage() {
       if (res.generated_draft) setDraft(res.generated_draft);
       setMessages((prev) => [...prev, { id: newId(), role: "assistant", content: res.reply_text, language: replyLanguage }]);
 
-      const newLogs = [...res.agent_logs];
-      if (speech.speak(res.reply_text, replyLanguage)) {
-        newLogs.push({
-          id: localLogId.current--,
-          document_id: document?.id ?? null,
-          agent_name: "Browser",
-          model_used: "speechSynthesis",
-          tool_called: "browser_tts",
-          tool_input: null,
-          tool_output_summary: `Speaking reply in ${replyLanguage === "ur" ? "Urdu" : "English"}`,
-          execution_ms: null,
-          created_at: new Date().toISOString(),
-        });
-      }
-      setLogs((prev) => [...prev, ...newLogs]);
+      setLogs((prev) => [...prev, ...res.agent_logs]);
 
       if (changed.size > 0) {
         setRecentlyUpdated(changed);
         setTimeout(() => setRecentlyUpdated(new Set()), 3000);
       }
     },
-    [document?.id, speech],
+    [],
   );
 
   const chatHistory = useCallback(
@@ -305,15 +290,12 @@ export default function HomePage() {
               onPressEnd: handlePressEnd,
             }}
             speech={{
-              isSupported: speech.isSupported,
-              muted: speech.muted,
-              speaking: speech.speaking,
               canSpeak: speech.canSpeak,
-              toggleMute: () => {
-                if (!speech.muted) speech.stop();
-                speech.setMuted(!speech.muted);
-              },
-              replay: (text, lang) => speech.speak(text, lang, true),
+              activeId: speech.activeId,
+              paused: speech.paused,
+              play: speech.play,
+              pause: speech.pause,
+              resume: speech.resume,
             }}
           />
         </div>
