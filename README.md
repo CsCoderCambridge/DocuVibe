@@ -4,6 +4,10 @@
 
 Built for Hacktoberfest Islamabad. Upload a photo of an Urdu or English form, utility bill, official notice or handwritten application. DocuVibe reads it with a self-correcting multi-pass vision agent, saves the structured result to SQLite, then lets you talk to a civic assistant (Urdu or English, voice or text) that fills in missing fields, builds an action checklist, and drafts a ready-to-print application.
 
+![DocuVibe dashboard showing a domicile certificate application: the scanned form, all six fields filled in SQLite, and the agent trace with a generated checklist](docs/screenshot.png)
+
+*A domicile certificate application after upload. The vision agent extracted 6 fields at 98% confidence, the user supplied their name and CNIC in chat, and the agent saved both to SQLite and listed the next steps.*
+
 ## Features
 
 - **Self-correcting vision agent (`VisionReflector`)**: a global scan finds the text and form fields and flags the hardest-to-read region. That region is cropped with Pillow, upscaled 2x and re-read, then a reasoning model reconciles both readings to fix broken Urdu ligatures and misread digits.

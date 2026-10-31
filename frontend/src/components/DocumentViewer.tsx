@@ -61,6 +61,8 @@ export default function DocumentViewer({ document, history, uploading, error, on
     english: document?.english_translation,
     urdu: document?.urdu_summary,
   };
+  const activeText = textByTab[tab];
+  const isUrduScript = /[\u0600-\u06FF]/.test(activeText ?? "");
 
   return (
     <section className="panel overflow-hidden" aria-label="Document viewer">
@@ -228,9 +230,9 @@ export default function DocumentViewer({ document, history, uploading, error, on
             </div>
             <div
               dir="auto"
-              className={`whitespace-pre-wrap rounded-lg bg-slate-50 p-3 text-sm ${tab !== "english" ? "urdu text-base" : ""}`}
+              className={`whitespace-pre-wrap rounded-lg bg-slate-50 p-3 text-sm ${isUrduScript ? "urdu text-base" : ""}`}
             >
-              {textByTab[tab] || <span className="text-slate-400">Nothing extracted for this view.</span>}
+              {activeText || <span className="text-slate-400">Nothing extracted for this view.</span>}
             </div>
           </>
         ) : (
