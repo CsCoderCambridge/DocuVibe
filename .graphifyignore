@@ -1,0 +1,4 @@
+docs/
+frontend/package-lock.json
+frontend/next-env.d.ts
+frontend/public/

@@ -1,0 +1,422 @@
+{
+  "communities": {
+    "0": [
+      "frontend_src_app_page",
+      "frontend_src_app_page_default_models",
+      "frontend_src_app_page_errormessage",
+      "frontend_src_app_page_homepage",
+      "frontend_src_app_page_newid",
+      "frontend_src_components_agenttracelog",
+      "frontend_src_components_agenttracelog_agenttracelog",
+      "frontend_src_components_agenttracelog_default_meta",
+      "frontend_src_components_agenttracelog_tool_meta",
+      "frontend_src_components_documentviewer",
+      "frontend_src_components_documentviewer_demo_samples",
+      "frontend_src_components_documentviewer_documentviewer",
+      "frontend_src_components_documentviewer_props",
+      "frontend_src_components_documentviewer_texttab",
+      "frontend_src_components_sqlitestatepanel",
+      "frontend_src_components_sqlitestatepanel_fieldrow",
+      "frontend_src_components_sqlitestatepanel_props",
+      "frontend_src_components_sqlitestatepanel_sqlitestatepanel",
+      "frontend_src_components_sqlitestatepanel_tab",
+      "frontend_src_components_topbar",
+      "frontend_src_components_topbar_badge",
+      "frontend_src_components_topbar_props",
+      "frontend_src_components_topbar_topbar",
+      "frontend_src_components_voiceagentchat",
+      "frontend_src_components_voiceagentchat_props",
+      "frontend_src_components_voiceagentchat_quick_prompts",
+      "frontend_src_components_voiceagentchat_speechcontrol",
+      "frontend_src_components_voiceagentchat_voiceagentchat",
+      "frontend_src_hooks_userecorder",
+      "frontend_src_hooks_userecorder_mime_candidates",
+      "frontend_src_hooks_userecorder_pickmimetype",
+      "frontend_src_hooks_userecorder_userecorder",
+      "frontend_src_hooks_usespeech",
+      "frontend_src_hooks_usespeech_stripmarkdown",
+      "frontend_src_hooks_usespeech_usespeech",
+      "frontend_src_lib_api",
+      "frontend_src_lib_api_api",
+      "frontend_src_lib_api_api_url",
+      "frontend_src_lib_api_apierror",
+      "frontend_src_lib_api_apierror_constructor",
+      "frontend_src_lib_api_imageurl",
+      "frontend_src_lib_api_json",
+      "frontend_src_lib_api_request",
+      "frontend_src_lib_types",
+      "frontend_src_lib_types_actionitem",
+      "frontend_src_lib_types_agentlog",
+      "frontend_src_lib_types_bbox",
+      "frontend_src_lib_types_chatmessage",
+      "frontend_src_lib_types_chatresponse",
+      "frontend_src_lib_types_chatturn",
+      "frontend_src_lib_types_documentfull",
+      "frontend_src_lib_types_documentrecord",
+      "frontend_src_lib_types_documentsummary",
+      "frontend_src_lib_types_field",
+      "frontend_src_lib_types_healthresponse",
+      "frontend_src_lib_types_language",
+      "ref_lucide_react",
+      "ref_react"
+    ],
+    "1": [
+      "frontend_package",
+      "frontend_package_dependencies",
+      "frontend_package_dependencies_lucide_react",
+      "frontend_package_dependencies_next",
+      "frontend_package_dependencies_react",
+      "frontend_package_dependencies_react_dom",
+      "frontend_package_dependencies_react_markdown",
+      "frontend_package_dependencies_remark_gfm",
+      "frontend_package_devdependencies",
+      "frontend_package_devdependencies_autoprefixer",
+      "frontend_package_devdependencies_postcss",
+      "frontend_package_devdependencies_tailwindcss",
+      "frontend_package_devdependencies_types_node",
+      "frontend_package_devdependencies_types_react",
+      "frontend_package_devdependencies_types_react_dom",
+      "frontend_package_devdependencies_typescript",
+      "frontend_package_name",
+      "frontend_package_private",
+      "frontend_package_scripts",
+      "frontend_package_scripts_build",
+      "frontend_package_scripts_dev",
+      "frontend_package_scripts_lint",
+      "frontend_package_scripts_start",
+      "frontend_package_version",
+      "frontend_src_app_globals",
+      "frontend_src_app_layout",
+      "frontend_src_app_layout_metadata",
+      "frontend_src_app_layout_rootlayout",
+      "frontend_tailwind_config",
+      "frontend_tailwind_config_config",
+      "ref_autoprefixer",
+      "ref_next",
+      "ref_postcss",
+      "ref_react_dom",
+      "ref_react_markdown",
+      "ref_remark_gfm",
+      "ref_tailwindcss",
+      "ref_types_node",
+      "ref_types_react",
+      "ref_types_react_dom",
+      "ref_typescript"
+    ],
+    "2": [
+      "backend_agents_civic_agent_execute_tool",
+      "backend_agents_civic_agent_py_any",
+      "backend_agents_civic_agent_rationale_119",
+      "backend_agents_civic_agent_run_civic_agent",
+      "backend_agents_civic_agent_system_prompt",
+      "backend_database",
+      "backend_database_add_field",
+      "backend_database_attach_logs_to_document",
+      "backend_database_create_document",
+      "backend_database_get_action_items",
+      "backend_database_get_agent_logs",
+      "backend_database_get_conn",
+      "backend_database_get_document",
+      "backend_database_get_document_full",
+      "backend_database_get_fields",
+      "backend_database_get_missing_fields",
+      "backend_database_init_db",
+      "backend_database_insert_fields",
+      "backend_database_list_documents",
+      "backend_database_log_agent_step",
+      "backend_database_py_any",
+      "backend_database_replace_action_items",
+      "backend_database_row",
+      "backend_database_rows",
+      "backend_database_save_draft",
+      "backend_database_set_action_item_completed",
+      "backend_database_update_field_by_id",
+      "backend_database_update_field_by_key",
+      "connection",
+      "json",
+      "sqlite3"
+    ],
+    "3": [
+      "backend_config_validate_config",
+      "backend_main",
+      "backend_main_actionitemupdate",
+      "backend_main_agent_chat",
+      "backend_main_agent_voice",
+      "backend_main_chatrequest",
+      "backend_main_fieldupdate",
+      "backend_main_get_document",
+      "backend_main_health",
+      "backend_main_historyturn",
+      "backend_main_lifespan",
+      "backend_main_list_documents",
+      "backend_main_llm_error",
+      "backend_main_py_exception",
+      "backend_main_update_action_item",
+      "backend_main_update_field",
+      "backend_main_upload_document",
+      "backend_main_validate_model_override",
+      "basemodel",
+      "contextlib",
+      "fastapi",
+      "fastapi_middleware_cors",
+      "fastapi_staticfiles",
+      "get",
+      "httpexception",
+      "logging",
+      "patch",
+      "post",
+      "pydantic",
+      "uploadfile",
+      "uuid"
+    ],
+    "4": [
+      "backend_agents_civic_agent",
+      "backend_agents_civic_agent_now_ms",
+      "backend_agents_civic_agent_rationale_1",
+      "backend_agents_civic_agent_transcribe_audio",
+      "backend_config",
+      "backend_config_env",
+      "backend_services_groq_client",
+      "backend_services_groq_client_chat_with_fallback",
+      "backend_services_groq_client_get_client",
+      "backend_services_groq_client_llmunavailableerror",
+      "backend_services_groq_client_llmunavailableerror_init",
+      "backend_services_groq_client_parse_json",
+      "backend_services_groq_client_py_any",
+      "backend_services_groq_client_py_exception",
+      "backend_services_groq_client_rationale_44",
+      "backend_services_groq_client_rationale_84",
+      "backend_services_groq_client_should_fall_back",
+      "backend_services_groq_client_transcribe_with_fallback",
+      "backend_services_groq_client_unique",
+      "dotenv",
+      "functools",
+      "groq",
+      "os",
+      "pathlib",
+      "re",
+      "time",
+      "typing"
+    ],
+    "5": [
+      "backend_agents_vision_agent",
+      "backend_agents_vision_agent_clamp_confidence",
+      "backend_agents_vision_agent_crop_and_reexamine_region",
+      "backend_agents_vision_agent_encode_image",
+      "backend_agents_vision_agent_load_image",
+      "backend_agents_vision_agent_normalize_fields",
+      "backend_agents_vision_agent_now_ms",
+      "backend_agents_vision_agent_persist_document_to_sqlite",
+      "backend_agents_vision_agent_py_any",
+      "backend_agents_vision_agent_rationale_1",
+      "backend_agents_vision_agent_rationale_150",
+      "backend_agents_vision_agent_rationale_168",
+      "backend_agents_vision_agent_rationale_180",
+      "backend_agents_vision_agent_run_vision_pipeline",
+      "backend_agents_vision_agent_run_vision_pipeline_log",
+      "backend_agents_vision_agent_text_json",
+      "backend_agents_vision_agent_valid_bbox",
+      "backend_agents_vision_agent_verify_and_repair_script",
+      "backend_agents_vision_agent_vision_json",
+      "base64",
+      "image",
+      "io",
+      "path",
+      "pil"
+    ],
+    "6": [
+      "frontend_tsconfig",
+      "frontend_tsconfig_compileroptions",
+      "frontend_tsconfig_compileroptions_allowjs",
+      "frontend_tsconfig_compileroptions_esmoduleinterop",
+      "frontend_tsconfig_compileroptions_incremental",
+      "frontend_tsconfig_compileroptions_isolatedmodules",
+      "frontend_tsconfig_compileroptions_jsx",
+      "frontend_tsconfig_compileroptions_lib",
+      "frontend_tsconfig_compileroptions_module",
+      "frontend_tsconfig_compileroptions_moduleresolution",
+      "frontend_tsconfig_compileroptions_noemit",
+      "frontend_tsconfig_compileroptions_paths",
+      "frontend_tsconfig_compileroptions_plugins",
+      "frontend_tsconfig_compileroptions_resolvejsonmodule",
+      "frontend_tsconfig_compileroptions_skiplibcheck",
+      "frontend_tsconfig_compileroptions_strict",
+      "frontend_tsconfig_compileroptions_target",
+      "frontend_tsconfig_exclude",
+      "frontend_tsconfig_include"
+    ],
+    "7": [
+      "frontend_next_config",
+      "frontend_next_config_nextconfig",
+      "next"
+    ],
+    "8": [
+      "backend_agents_init"
+    ],
+    "9": [
+      "backend_services_init"
+    ],
+    "10": [
+      "frontend_postcss_config"
+    ]
+  },
+  "cohesion": {
+    "0": 0.08106473079249849,
+    "1": 0.06219512195121951,
+    "2": 0.21505376344086022,
+    "3": 0.10752688172043011,
+    "4": 0.1339031339031339,
+    "5": 0.17753623188405798,
+    "6": 0.10526315789473684,
+    "7": 0.6666666666666666,
+    "8": 1.0,
+    "9": 1.0,
+    "10": 1.0
+  },
+  "gods": [
+    {
+      "id": "backend_database_get_conn",
+      "label": "get_conn()",
+      "degree": 20
+    },
+    {
+      "id": "backend_agents_vision_agent_run_vision_pipeline",
+      "label": "run_vision_pipeline()",
+      "degree": 18
+    },
+    {
+      "id": "frontend_tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 16
+    },
+    {
+      "id": "backend_agents_civic_agent_run_civic_agent",
+      "label": "run_civic_agent()",
+      "degree": 14
+    },
+    {
+      "id": "backend_agents_civic_agent_execute_tool",
+      "label": "_execute_tool()",
+      "degree": 13
+    },
+    {
+      "id": "backend_services_groq_client_chat_with_fallback",
+      "label": "chat_with_fallback()",
+      "degree": 13
+    },
+    {
+      "id": "backend_database_row",
+      "label": "_row()",
+      "degree": 10
+    },
+    {
+      "id": "backend_main_agent_voice",
+      "label": "agent_voice()",
+      "degree": 10
+    },
+    {
+      "id": "frontend_src_app_page_homepage",
+      "label": "HomePage()",
+      "degree": 9
+    },
+    {
+      "id": "ref_react",
+      "label": "react",
+      "degree": 9
+    }
+  ],
+  "surprises": [
+    {
+      "source": "_llm_error()",
+      "target": "LLMUnavailableError",
+      "source_files": [
+        "backend/main.py",
+        "backend/services/groq_client.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    },
+    {
+      "source": "_execute_tool()",
+      "target": "chat_with_fallback()",
+      "source_files": [
+        "backend/agents/civic_agent.py",
+        "backend/services/groq_client.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "run_civic_agent()",
+      "target": "chat_with_fallback()",
+      "source_files": [
+        "backend/agents/civic_agent.py",
+        "backend/services/groq_client.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "agent_chat()",
+      "target": "run_civic_agent()",
+      "source_files": [
+        "backend/main.py",
+        "backend/agents/civic_agent.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "agent_voice()",
+      "target": "run_civic_agent()",
+      "source_files": [
+        "backend/main.py",
+        "backend/agents/civic_agent.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `react` connect `Community 0` to `Community 1`?",
+      "why": "High betweenness centrality (0.051) - this node is a cross-community bridge."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 0` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.08106473079249849 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `lucide-react` connect `Community 0` to `Community 1`?",
+      "why": "High betweenness centrality (0.026) - this node is a cross-community bridge."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 1` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.06219512195121951 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `run_vision_pipeline()` connect `Community 5` to `Community 2`, `Community 3`?",
+      "why": "High betweenness centrality (0.023) - this node is a cross-community bridge."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 3` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.10752688172043011 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 4` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.1339031339031339 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

@@ -15,6 +15,11 @@ frontend/.next/
 frontend/out/
 *.tsbuildinfo
 
+# Graphify local-only files
+graphify-out/cache/
+graphify-out/cost.json
+graphify-out/.graphify_root
+
 # OS / editor
 .DS_Store
 Thumbs.db
