@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .panel {
+    @apply flex min-h-0 flex-1 flex-col rounded-xl border border-slate-200 bg-white shadow-sm;
+  }
+  .tab {
+    @apply rounded-md px-3 py-1.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100;
+  }
+  .tab-active {
+    @apply bg-slate-900 text-white hover:bg-slate-800;
+  }
+  .urdu {
+    @apply font-urdu leading-[2.2];
+    direction: rtl;
+    text-align: right;
+  }
+}
+
+.markdown h1 { @apply mb-3 text-xl font-bold; }
+.markdown h2 { @apply mb-2 mt-4 text-lg font-semibold; }
+.markdown h3 { @apply mb-2 mt-3 font-semibold; }
+.markdown p { @apply mb-2; }
+.markdown ul { @apply mb-2 list-disc pl-5; }
+.markdown ol { @apply mb-2 list-decimal pl-5; }
+.markdown table { @apply my-3 w-full border-collapse text-sm; }
+.markdown th, .markdown td { @apply border border-slate-300 px-2 py-1 text-left align-top; }
+.markdown th { @apply bg-slate-100; }
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #print-area,
+  #print-area * {
+    visibility: visible;
+  }
+  #print-area {
+    position: absolute;
+    inset: 0;
+    padding: 24px;
+    overflow: visible;
+  }
+}
